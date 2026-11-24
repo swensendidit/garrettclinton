@@ -551,6 +551,25 @@ body{background:transparent!important}
 .light{display:none}
 nav[aria-label=Sections]{background:color-mix(in srgb,var(--card) 88%,transparent)!important}
 @media(prefers-reduced-motion:reduce){.vbg video{display:none}}
+
+.sub{margin:28px 0 8px;padding:20px 22px;border-radius:18px;background:var(--card);box-shadow:var(--lift);border:1px solid color-mix(in srgb,var(--rule) 60%,transparent);display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.sub-t b{display:block;font-size:21px;font-weight:600}
+.sub-t span{color:var(--soft);font-size:17px}
+.sub-f{display:flex;gap:8px;flex:1 1 300px;max-width:400px}
+.sub input{flex:1;min-width:0;font:inherit;font-size:17px;padding:10px 14px;border-radius:10px;border:1px solid var(--edge);background:var(--bg);color:var(--ink)}
+.sub input:focus{outline:2px solid var(--acc);outline-offset:1px}
+.sub button{font:inherit;font-size:17px;font-weight:500;padding:10px 18px;border-radius:10px;border:0;background:var(--acc-ink);color:#fff;cursor:pointer;white-space:nowrap;transition:transform .2s,box-shadow .2s}
+.sub button:hover{transform:translateY(-1px);box-shadow:0 10px 20px -12px var(--acc)}
+
+/* subscribe everywhere */
+.nsub{position:sticky;right:0;flex:none;margin-left:8px;font:inherit;font-size:15px;font-weight:600;padding:6px 14px;border-radius:999px;border:0;background:var(--acc-ink);color:#fff;cursor:pointer;box-shadow:-10px 0 12px -4px color-mix(in srgb,var(--card) 90%,transparent);transition:transform .2s}
+.nsub:hover{transform:translateY(-1px)}
+.subpop{position:fixed;z-index:30;top:64px;right:max(16px,calc(50vw - 600px));width:min(460px,calc(100vw - 32px))}
+.subpop[hidden]{display:none}
+.subpop .sub{margin:0;box-shadow:var(--lift2)!important;animation:popin .28s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes popin{from{opacity:0;transform:translateY(-8px) scale(.97)}to{opacity:1;transform:none}}
+.sub-pop .sub-f,.sub-mid .sub-f{max-width:none}
+.sub-mid{background:color-mix(in srgb,var(--acc-soft) 70%,var(--card))!important}
 </style>
 <script>try{var t=localStorage.getItem("gc-theme");document.documentElement.dataset.theme=t==="dark"?"dark":"light"}catch(e){document.documentElement.dataset.theme="light"}</script>
 </head>
@@ -578,9 +597,14 @@ nav[aria-label=Sections]{background:color-mix(in srgb,var(--card) 88%,transparen
 </header>
 
 <nav aria-label="Sections"><div class="wrap">
-<a href="#why">Introduction</a><a href="#moment">Valuing the moment</a><a href="#trust">Incentives and the architecture of trust</a><a href="#origins">How did your company start?</a><a href="#options">The models that serve families</a><a href="#survey">What could work best for you?</a><a href="#sources">Sources and notes</a>
+<a href="#why">Introduction</a><a href="#moment">Valuing the moment</a><a href="#trust">Incentives and the architecture of trust</a><a href="#origins">How did your company start?</a><a href="#options">The models that serve families</a><a href="#survey">What could work best for you?</a><a href="#sources">Sources and notes</a><button type="button" class="nsub" id="nsub" aria-expanded="false" aria-controls="subpop">Subscribe</button>
 </div></nav>
 
+<div class="subpop" id="subpop" role="dialog" aria-label="Subscribe" hidden>
+<form class="sub sub-pop" action="https://garrettclinton.substack.com/subscribe" method="get" target="_blank">
+<div class="sub-t"><b>Get the next note</b><span>I'll send what I write next, and nothing else.</span></div>
+<div class="sub-f"><input type="email" name="email" required placeholder="you@email.com" aria-label="Email address"><button type="submit">Subscribe</button></div>
+</form></div>
 <main>
 <section class="band" id="why"><div class="wrap col">
 <p>For the past year here at Stanford, I have been researching how first-generation wealth creators build trust with the people who ultimately end up advising them.</p>
@@ -635,6 +659,11 @@ nav[aria-label=Sections]{background:color-mix(in srgb,var(--card) 88%,transparen
 <p>None of this makes anyone dishonest, and many of the best advisors work well within exactly these structures. My research has taught me that families are comfortable paying for good advice, as long as they understand how it is paid for. Trust tends to break when they later learn the incentives behind their advisor were not aligned with the long-term goals of their family.</p>
 </div></section>
 
+<div class="band" style="padding-top:0;padding-bottom:8px"><div class="wrap col">
+<form class="sub sub-mid" action="https://garrettclinton.substack.com/subscribe" method="get" target="_blank">
+<div class="sub-t"><b>Finding this useful?</b><span>Get the next note in your inbox when it's out.</span></div>
+<div class="sub-f"><input type="email" name="email" required placeholder="you@email.com" aria-label="Email address"><button type="submit">Subscribe</button></div>
+</form></div></div>
 <section class="band" id="origins" style="padding-top:0"><div class="wrap col">
 <div class="ask-head"><span>Ask any advisor you are considering</span><h2>“How did your company start?”</h2></div>
 <p>Most advisors work within a larger company, and how that company started can tell you a lot about the frame of thinking its advisors bring to your family. The business it was first built to run, and the clients who first paid it, still show up in what it does well, whom it hires, and what it suggests first. Most advisors work for a company that traces back to one of four starting points, and each tends to show up as one of the options in this piece.</p>
@@ -682,6 +711,10 @@ nav[aria-label=Sections]{background:color-mix(in srgb,var(--card) 88%,transparen
 
 <section class="band reach" id="reach"><div class="wrap col">
 <p class="reach-p">Thanks for reading! I will be continuing this research through the rest of my time at Stanford. If you have been through one of these moments, or are in one now, I would be honored to hear how you thought about it or are approaching it. Feel free to write me at <a href="mailto:gclinton@stanford.edu">gclinton@stanford.edu</a> or send me a message on <a href="https://www.linkedin.com/in/garrettclinton/" target="_blank" rel="noopener">LinkedIn</a>.</p>
+<form class="sub" action="https://garrettclinton.substack.com/subscribe" method="get" target="_blank">
+<div class="sub-t"><b>Get the next note</b><span>I'll send what I write next, and nothing else.</span></div>
+<div class="sub-f"><input type="email" name="email" required placeholder="you@email.com" aria-label="Email address"><button type="submit">Subscribe</button></div>
+</form>
 </div></section>
 <section class="band src" id="sources"><div class="wrap col">
 <h2>Sources and notes</h2>
@@ -863,5 +896,12 @@ const pb=document.getElementById('prog-bar');const onS=()=>{const h=document.doc
 <script>(()=>{if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;const els=document.querySelectorAll('.ai-note,.take,.figbox,.chart,.pull,.ask-head,.tabs,.pnl,.orig-fig,section h2');const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08,rootMargin:'0px 0px -6% 0px'});els.forEach(el=>{const r=el.getBoundingClientRect();if(r.top<innerHeight)return;el.classList.add('fl');io.observe(el)})})();</script>
 <script>(()=>{const v=document.getElementById('vbg');if(v&&!matchMedia('(prefers-reduced-motion: reduce)').matches){v.src=innerWidth<800?'/sf-m.mp4':'/sf.mp4';v.play().catch(()=>{})}
 const f=document.getElementById('vfade');const u=()=>{const k=Math.min(1,Math.max(0,(scrollY-innerHeight*.4)/(innerHeight*.8)));f.style.setProperty('--deep',(k*.55).toFixed(3))};u();addEventListener('scroll',u,{passive:true})})();</script>
+<script>(()=>{const b=document.getElementById('nsub'),p=document.getElementById('subpop');if(!b||!p)return;
+const set=o=>{p.hidden=!o;b.setAttribute('aria-expanded',o);if(o)setTimeout(()=>p.querySelector('input').focus(),50)};
+b.addEventListener('click',e=>{e.stopPropagation();set(p.hidden)});
+document.addEventListener('click',e=>{if(!p.hidden&&!p.contains(e.target))set(false)});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')set(false)});
+document.querySelectorAll('form.sub').forEach(f=>f.addEventListener('submit',()=>{const bt=f.querySelector('button');bt.textContent='Confirm in the new tab';setTimeout(()=>{bt.textContent='Subscribe'},6000)}));
+})();</script>
 </body>
 </html>

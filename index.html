@@ -100,6 +100,19 @@ h1 .sp{display:inline-block;width:.26em}
 .org img{transform:scale(.4);opacity:0;transition:transform .5s cubic-bezier(.2,1.6,.3,1) var(--d,0s),opacity .3s var(--d,0s)}
 .go-in .org img{transform:none;opacity:1}
 @media(prefers-reduced-motion:reduce){h1 .ch,.w{opacity:1!important;transform:none!important;filter:none!important}.rule{width:min(360px,70%)}.org{background-size:100% 1px}.org img{transform:none;opacity:1}}
+
+.sub{margin-top:40px;padding:20px 22px;border-radius:16px;background:var(--glass);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border:1px solid var(--rule);display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.sub-t b{display:block;font-size:21px;font-weight:600}
+.sub-t span{color:var(--soft);font-size:17px}
+.sub-f{display:flex;gap:8px;flex:1 1 280px}
+.sub input{flex:1;min-width:0;font:inherit;font-size:17px;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.08);color:#fff}
+.sub input::placeholder{color:rgba(255,255,255,.55)}
+.sub input:focus{outline:2px solid #8cc3f0;outline-offset:1px}
+.sub button{font:inherit;font-size:17px;font-weight:500;padding:10px 18px;border-radius:10px;border:0;background:#fff;color:#111318;cursor:pointer;white-space:nowrap;transition:transform .2s}
+.sub button:hover{transform:translateY(-1px)}
+nav a.nsub{opacity:1;color:#111318;background:#fff;padding:6px 14px;border-radius:999px;font-weight:600;font-size:15px}
+nav a.nsub:hover{color:#111318;transform:translateY(-1px)}
+@media(max-width:600px){nav a.nsub{padding:5px 11px}}
 </style>
 </head>
 <body>
@@ -111,6 +124,7 @@ h1 .sp{display:inline-block;width:.26em}
 <a href="#listen">Podcast</a>
 <a class="hide-s" href="https://garrettclinton.substack.com/" target="_blank" rel="noopener">Substack</a>
 <a href="https://www.linkedin.com/in/garrettclinton/" target="_blank" rel="noopener">LinkedIn</a>
+<a class="nsub" href="#subscribe">Subscribe</a>
 </nav>
 </div></header>
 
@@ -150,6 +164,10 @@ h1 .sp{display:inline-block;width:.26em}
 <a class="row" href="https://podcasts.apple.com/us/podcast/full-stack/id1872292669" target="_blank" rel="noopener"><span><span class="t">The Truth About Venture Funds in 2026</span><span class="s">with James Shecter, Makena Capital</span></span><span class="d">Feb 2026 ↗</span></a>
 </div>
 </section>
+<form class="sub" id="subscribe" action="https://garrettclinton.substack.com/subscribe" method="get" target="_blank">
+<div class="sub-t"><b>Get the next note</b><span>I'll send what I write next, and nothing else.</span></div>
+<div class="sub-f"><input type="email" name="email" required placeholder="you@email.com" aria-label="Email address"><button type="submit">Subscribe</button></div>
+</form>
 <p class="note">If you're a founder or athlete working through what comes after a liquidity event, I'd like to hear from you.</p>
 </div>
 </main>
