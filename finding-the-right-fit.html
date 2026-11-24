@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Finding the Right Fit for Your Family</title>
+<meta name="description" content="Field notes on trust, incentives, and how first-generation families choose between wealth managers, private banks, family offices, and robo-advisors. Includes a six-question survey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Wealth Manager, Private Bank, Family Office, or Robo-Advisor?">
+<meta property="og:description" content="Finding the right fit for your family. Field notes on trust and incentives, with a six-question survey.">
+<meta property="og:url" content="https://garrettclinton.vercel.app/finding-the-right-fit">
+<meta property="og:image" content="https://garrettclinton.vercel.app/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://garrettclinton.vercel.app/og.png">
+<meta name="author" content="Garrett Clinton">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+/* VOICE work: a long-form research note, calm and exact
+   IDEA a journal article with a fold-out comparison and a self-scoring worksheet
+   PICTURE the five options drawn on one true log scale of investable assets, with their four traits as meters
+   COLOUR white ground, ink, light blue for marks, a deeper blue for text on light, quiet slate rules; deep night in dark
+   TYPE EB Garamond throughout
+   LAYOUT title across the top, range chart full width beneath; one reading column below, wide figures break out */
+:root{color-scheme:light dark;--bg:#ffffff;--ink:#14110f;--soft:#4a4a55;--mute:#77768a;--rule:#e4e3ea;--panel:#f6f6fa;--acc:#4f97d4;--acc-ink:#1d5d96;--acc-soft:#e8f2fb;--dot-off:#d9d8e2;--edge:#d2d4db}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0d0e18;--ink:#ecebf2;--soft:#b4b3c4;--mute:#8b8aa0;--rule:#262838;--panel:#151726;--acc:#7fb9ea;--acc-ink:#a9d2f5;--acc-soft:#13263a;--dot-off:#34364a;--edge:#3a3d50}}
+:root[data-theme=dark]{--bg:#0d0e18;--ink:#ecebf2;--soft:#b4b3c4;--mute:#8b8aa0;--rule:#262838;--panel:#151726;--acc:#7fb9ea;--acc-ink:#a9d2f5;--acc-soft:#13263a;--dot-off:#34364a;--edge:#3a3d50}
+@supports (color:light-dark(#000,#fff)){:root{color-scheme:light dark;--bg:light-dark(#ffffff,#0d0e18);--ink:light-dark(#14110f,#ecebf2);--soft:light-dark(#4a4a55,#b4b3c4);--mute:light-dark(#77768a,#8b8aa0);--rule:light-dark(#e4e3ea,#262838);--panel:light-dark(#f6f6fa,#151726);--acc:light-dark(#4f97d4,#7fb9ea);--acc-ink:light-dark(#1d5d96,#a9d2f5);--acc-soft:light-dark(#e8f2fb,#13263a);--dot-off:light-dark(#d9d8e2,#34364a);--edge:light-dark(#d2d4db,#3a3d50)}}}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:19px/1.6 'EB Garamond',Georgia,serif;overflow-x:clip}
+.band{padding-block:clamp(28px,4vw,56px);padding-left:max(5vw,16px);padding-right:max(5vw,16px)}
+.wrap{max-width:1180px;margin:0 auto}
+.col{max-width:680px}
+.wrap.col{max-width:1180px}
+.wrap.col>*{max-width:680px}
+.sans{font-family:'EB Garamond',Georgia,serif}
+h1{font-size:clamp(34px,5vw,52px);line-height:1.05;letter-spacing:-.02em;font-weight:600;margin:0;text-wrap:balance;max-width:16ch}
+.sub{font-size:clamp(22px,2.6vw,28px);line-height:1.25;margin:10px 0 0;color:var(--soft);font-weight:400}
+.dek{font-style:italic;margin:18px 0 0;color:var(--soft)}
+.by{font:500 16px/1.4 'EB Garamond',Georgia,serif;color:var(--mute);margin-top:14px}
+.top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:clamp(24px,4vw,56px);align-items:end}
+.chart{border-top:1px solid var(--ink);padding-top:14px}
+.chart h2{font:600 17px/1.4 'EB Garamond',Georgia,serif;margin:0 0 4px}
+.chart p{font:400 15px/1.45 'EB Garamond',Georgia,serif;color:var(--mute);margin:0 0 14px}
+.rng{display:grid;grid-template-columns:9.5em minmax(0,1fr);gap:8px 12px;align-items:center;font:500 15px/1.3 'EB Garamond',Georgia,serif}
+.rng button{all:unset;cursor:pointer;color:var(--ink);padding:4px 0}
+.rng button:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.track{position:relative;height:26px;background:repeating-linear-gradient(90deg,var(--rule) 0 1px,transparent 1px 20%)}
+.tail{position:absolute;top:5px;height:16px;border-radius:3px;background:linear-gradient(90deg,transparent,var(--acc) 30%,var(--acc) 70%,transparent);opacity:.4}
+.bar{position:absolute;top:5px;height:16px;border-radius:3px;background:var(--acc);opacity:.85}
+.bar span{position:absolute;left:calc(100% + 6px);top:-1px;white-space:nowrap;color:var(--soft);font-weight:500}
+.bar.r span{left:auto;right:calc(100% + 6px)}
+.bar.r.in span{right:auto;left:8px;color:#fff}
+.axis span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+.axis span:first-child{transform:none}
+.axis{grid-column:2;position:relative;height:1.4em;font:400 14px/1 'EB Garamond',Georgia,serif;color:var(--mute);padding-top:4px}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);background:color-mix(in srgb,var(--bg) 92%,transparent);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border-block:1px solid var(--rule)}
+nav .wrap{max-width:none;display:flex;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:none;gap:2px;padding:8px max(5vw,16px);font:500 15px/1.4 'EB Garamond',Georgia,serif}
+nav a{white-space:nowrap;flex:none;color:var(--soft);text-decoration:none;padding:6px 8px;border-radius:999px}
+nav a.on{background:var(--acc-soft);color:var(--acc-ink)}
+nav a:hover{color:var(--acc-ink)}
+section h2{font-size:clamp(26px,3vw,34px);line-height:1.1;letter-spacing:-.01em;font-weight:600;margin:0 0 14px}
+p{margin:0 0 1em}
+.orig{width:100%;border-collapse:collapse;font-size:16px;line-height:1.4;table-layout:fixed}
+.orig th,.orig td{width:25%;padding-left:12px!important;padding-right:12px!important}
+.orig th{font:600 13.5px/1.3 'EB Garamond',Georgia,serif;color:var(--mute);text-align:left;padding:0 12px 8px 0;border-bottom:1px solid var(--ink);vertical-align:bottom}
+.orig td{padding:12px 12px 12px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.orig td:first-child{font-weight:600;color:var(--acc-ink)}
+.orig td small{display:block;font-weight:400;font-style:italic;color:var(--mute);font-size:13.5px;line-height:1.35;margin-top:4px}
+.orig td:nth-child(2),.orig th:nth-child(2){background:var(--acc-soft);padding-left:12px}
+.orig td:nth-child(2){font-weight:500;color:var(--ink)}
+.orig tr.hl td{background:var(--acc-soft)}
+.orig tr.hl td:first-child{box-shadow:inset 3px 0 0 var(--acc);padding-left:12px}
+.orig tr:not(.hl) td:first-child{padding-left:12px}
+.orig th:first-child{padding-left:12px}
+@media(max-width:640px){.orig thead{display:none}.orig,.orig tbody,.orig tr,.orig td{display:block}.orig tr{border-bottom:1px solid var(--rule);padding:12px 12px}.orig td{border:0;padding:2px 0!important;white-space:normal!important;width:auto!important}.orig tr.hl{background:var(--acc-soft);box-shadow:inset 3px 0 0 var(--acc)}.orig tr.hl td,.orig tr.hl td:first-child{background:none;box-shadow:none}.orig td:nth-child(2){padding:4px 8px!important;border-radius:4px;margin:4px 0}
+.orig td:nth-child(2)::before{content:'First paid for: ';font-style:normal;color:var(--mute);font-size:14px}.orig td:nth-child(3)::before{content:'Suggests first: ';color:var(--mute);font-size:14px}.orig td:nth-child(4)::before{content:'Hard to add later? ';color:var(--mute);font-size:14px}}
+.share{margin-top:14px;padding-top:12px;border-top:1px solid var(--rule)}
+.share button{font:inherit;font-size:15.5px;padding:9px 14px;border-radius:8px;border:1px solid var(--acc);background:transparent;color:var(--acc-ink);cursor:pointer}
+.share button:hover{background:var(--acc-soft)}
+.share button:disabled{opacity:.6;cursor:default}
+.share p{margin:.5em 0 0}
+.share.done p{color:var(--acc-ink);font-style:italic}
+.tk5{margin-top:1.1em;border-radius:12px;overflow:hidden;border:1px solid var(--edge);background:var(--bg)}
+.tk5-top{display:flex;align-items:baseline;gap:10px;padding:10px 18px;border-bottom:1px dashed var(--edge)}
+.tk5-top span{font-size:15px;font-weight:600;color:var(--mute)}
+.tk5-top em{font-size:13.5px;color:var(--mute)}
+.tk5-cap{padding:12px 18px 6px;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--acc-ink)}
+.tk5 a{display:grid;grid-template-columns:2.2em 1fr auto;align-items:center;gap:14px;padding:14px 18px;text-decoration:none;color:var(--ink);transition:padding .2s}
+.tk5 a.l1{background:rgba(79,151,212,.12)}
+.tk5 a.l2{background:rgba(79,151,212,.24)}
+.tk5 a.l3{background:rgba(79,151,212,.40)}
+.tk5 a:hover{padding-left:24px}
+.tk5 a b{font-size:28px;font-weight:500;line-height:1;color:var(--acc-ink);font-variant-numeric:lining-nums}
+.tk5 a strong{display:block;font-size:17.5px;font-weight:600;line-height:1.3}
+.tk5 a em{display:block;font-style:normal;font-size:14px;line-height:1.4;color:var(--mute);margin-top:2px}
+.tk5 a.l3 em{color:var(--ink);opacity:.75}
+.tk5 a i{font-style:normal;font-size:18px;color:var(--acc-ink);opacity:.7}
+@media(max-width:640px){.tk5 a{grid-template-columns:2.4em 1fr auto;padding:12px 14px}.tk5 a b{font-size:22px}.tk5-top{flex-direction:column;gap:0}}
+.ai-note{margin:1.2em 0 1.4em;padding:.9em 1.2em;border-left:3px solid var(--acc);background:var(--acc-soft);border-radius:0 8px 8px 0;max-width:42em}
+.ai-note>span{display:block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc-ink);font-weight:600;margin-bottom:.3em}
+.ai-note p{margin:0}
+.svp{margin-bottom:12px}
+.svp-bar{height:6px;border-radius:3px;background:var(--rule);overflow:hidden}
+.svp-bar i{display:block;height:100%;width:0;border-radius:3px;background:var(--acc);transition:width .6s cubic-bezier(.2,.8,.2,1)}
+.svp-dots{display:flex;gap:6px;margin-top:8px}
+.svp-dots b{width:8px;height:8px;border-radius:50%;background:var(--rule);transition:background .3s,transform .4s cubic-bezier(.34,1.56,.64,1)}
+.svp-dots b.on{background:var(--acc);transform:scale(1.25)}
+.fit.anim .mo,.fit.anim .wx,.fit.anim .pick,.fit.anim .note,.fit.anim .share{animation:rise .55s cubic-bezier(.2,.8,.2,1) both}
+.fit.anim .wx{animation-delay:.05s}.fit.anim .pick:nth-of-type(1){animation-delay:.1s}.fit.anim .pick:nth-of-type(2){animation-delay:.2s}.fit.anim .note,.fit.anim .share{animation-delay:.3s}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.pick{transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s}
+.pick:hover{transform:translateY(-2px);box-shadow:inset 3px 0 0 var(--acc),0 10px 24px -16px var(--acc)}
+.reset{transition:color .2s,background .2s}
+@media(prefers-reduced-motion:reduce){.opts button,.opts button::before,.q,.q h3 span,.tally .t i,.svp-bar i,.svp-dots b,.pick{transition:none!important}.fit.anim *{animation:none!important}.opts button:hover,.pick:hover{transform:none}}
+.live{margin:6px 0 16px}
+.live-l{margin:0 0 8px;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--acc-ink);transition:color .3s}
+.lv{display:grid;gap:8px}
+.slot{all:unset;box-sizing:border-box;display:flex;align-items:baseline;gap:14px;width:100%;padding:12px 16px;border-radius:12px;border:1px solid var(--rule);background:var(--bg);overflow:hidden;transition:border-color .3s,background .3s,box-shadow .3s,transform .2s cubic-bezier(.2,.8,.2,1)}
+.slot .rk{font:400 30px/1 'EB Garamond',Georgia,serif;color:var(--acc);min-width:.6em;font-variant-numeric:lining-nums}
+.slot .nm{display:block;font:italic 500 22px/1.2 'EB Garamond',Georgia,serif;color:var(--ink);will-change:transform,opacity}
+.live.done .slot{cursor:pointer}
+.live.done .slot:hover{transform:translateY(-1px);border-color:var(--acc)}
+.slot.on{border-color:var(--acc);background:var(--acc-soft);box-shadow:0 10px 24px -18px var(--acc)}
+.slot.on .nm{font-style:normal;font-weight:600}
+.slot:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+#fit .mo{font:italic 400 18px/1.5 'EB Garamond',Georgia,serif;color:var(--soft);margin:0 0 12px}
+.pnl{border-left:2px solid var(--acc);padding:2px 0 2px 16px;display:grid;gap:12px}
+.pr span{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:600;margin-bottom:2px}
+.pr p{margin:0;font-size:18px;line-height:1.45}
+.pr p.ask{font-style:italic}
+#fit>.note{margin-top:16px}
+.q h3{font-weight:500}
+.fcta{position:fixed;right:24px;bottom:24px;z-index:20;display:flex;white-space:nowrap;align-items:center;gap:10px;padding:12px 18px 12px 16px;border-radius:999px;background:var(--ink);color:var(--bg);text-decoration:none;box-shadow:0 18px 40px -16px rgba(0,0,0,.45);opacity:0;transform:translateY(24px) scale(.96);pointer-events:none;transition:opacity .35s ease,transform .45s cubic-bezier(.2,.8,.2,1)}
+.fcta.show{opacity:1;transform:none;pointer-events:auto}
+.fcta .fc-dot{width:9px;height:9px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 0 var(--acc)}
+.fcta.pulse .fc-dot{animation:fcp 1.6s ease-out 3}
+@keyframes fcp{0%{box-shadow:0 0 0 0 rgba(79,151,212,.7)}100%{box-shadow:0 0 0 12px rgba(79,151,212,0)}}
+.fcta .fc-t{font:600 17px/1 'EB Garamond',Georgia,serif}
+.fcta .fc-s{font:italic 400 15px/1 'EB Garamond',Georgia,serif;opacity:.7}
+.fcta i{font-style:normal;transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+.fcta:hover{transform:translateY(-2px)}
+.fcta:hover i{transform:translateX(3px)}
+.fcta:focus-visible,.hero-cta:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+@media(max-width:640px){.fcta{left:50%;right:auto;bottom:16px;transform:translate(-50%,24px) scale(.96)}.fcta.show{transform:translateX(-50%)}.fcta:hover{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.fcta,.hero-cta,.hero-cta i,.fcta i{transition:none}.fcta.pulse .fc-dot{animation:none}}
+@media print{.fcta,.hero-cta{display:none!important}}
+.share{margin-top:18px;padding:16px 18px;border-radius:14px;background:var(--acc-soft);border:0}
+.share .sh-h{display:block;font:600 18px/1.3 'EB Garamond',Georgia,serif;color:var(--ink)}
+.share>p{margin:.35em 0 0;font-size:16px;line-height:1.45;color:var(--soft)}
+.sh-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.share button{font:500 16px/1.2 'EB Garamond',Georgia,serif;padding:10px 18px;border-radius:999px;border:1px solid var(--acc);background:var(--acc);color:var(--bg);cursor:pointer;transition:transform .2s cubic-bezier(.2,.8,.2,1),box-shadow .25s,background .25s}
+.share button:hover{transform:translateY(-1px);box-shadow:0 8px 18px -10px var(--acc);background:var(--acc)}
+.share button.ghost{background:transparent;color:var(--acc-ink)}
+.share button.ghost:hover{background:var(--bg)}
+.share .note{font-size:13px;margin-top:10px}
+.share.done{display:flex;gap:12px;align-items:flex-start;animation:rise .5s cubic-bezier(.2,.8,.2,1) both}
+.share.done b{font:600 18px/1.3 'EB Garamond',Georgia,serif;color:var(--ink)}
+.share.done p{margin:2px 0 0;color:var(--soft);font-style:normal}
+.sh-ck{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--acc);color:var(--bg);font-size:15px;animation:pop .5s cubic-bezier(.34,1.56,.64,1) both}
+@keyframes pop{from{transform:scale(0)}to{transform:scale(1)}}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.slot{position:relative;align-items:center!important;padding:16px 18px!important;border-radius:16px!important;min-height:76px;transition:background .45s ease,border-color .45s,box-shadow .45s,color .45s,transform .25s cubic-bezier(.2,.8,.2,1)!important}
+.slot .rk{position:absolute;right:14px;top:50%;transform:translateY(-50%);font:italic 400 64px/1 'EB Garamond',Georgia,serif!important;color:var(--acc)!important;opacity:.18;pointer-events:none;transition:color .45s,opacity .45s}
+.slot .bd{display:flex;align-items:center;gap:14px;min-width:0;padding-right:40px}
+.slot .ico{flex:none;width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:var(--acc-soft);color:var(--acc-ink);transition:background .45s,color .45s}
+.slot .ico:empty{background:var(--rule)}
+.slot .ico svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.slot .tx{display:block;min-width:0}
+.slot .nm{font:500 21px/1.2 'EB Garamond',Georgia,serif!important;font-style:normal!important}
+.slot .sh{display:block;font:italic 400 15px/1.3 'EB Garamond',Georgia,serif;color:var(--mute);margin-top:2px;transition:color .45s}
+.slot.empty .nm{color:var(--mute)}
+.slot.on{background:linear-gradient(135deg,var(--acc),var(--acc-ink))!important;border-color:transparent!important;box-shadow:0 18px 36px -20px var(--acc)!important}
+.slot.on .nm{color:#fff;font-weight:600!important}
+.slot.on .sh{color:rgba(255,255,255,.82)}
+.slot.on .ico{background:rgba(255,255,255,.18);color:#fff}
+.slot.on .rk{color:#fff!important;opacity:.25}
+@media (prefers-color-scheme:dark){.slot.on{background:linear-gradient(135deg,#2f6fa8,#1d4f7d)!important}}
+[data-theme=dark] .slot.on{background:linear-gradient(135deg,#2f6fa8,#1d4f7d)!important}
+.lv{gap:9px!important}
+#lv .slot{min-height:0;padding:9px 14px!important;border-radius:12px!important}
+#lv .slot .rk{position:static;transform:none;font:italic 400 24px/1 'EB Garamond',Georgia,serif!important;opacity:.6;width:1.1em;flex:none}
+#lv .slot{gap:10px}
+#lv .slot .bd{padding-right:0;gap:12px}
+#lv .slot .ico{width:32px;height:32px;border-radius:10px}
+#lv .slot .ico svg{width:18px;height:18px}
+#lv .slot .nm{font-size:17.5px!important}
+#lv .slot .sh{font-size:13.5px;max-height:0;opacity:0;overflow:hidden;transition:max-height .45s cubic-bezier(.2,.8,.2,1),opacity .35s}
+#lv .slot.top .sh{max-height:2.6em;opacity:1}
+#lv .slot.top{padding:13px 14px!important}
+#lv .slot.top .nm{font-size:19px!important}
+#lv .slot.dim{opacity:.45}
+#lv .slot.on .rk{opacity:.85}
+#lv .slot .rk:empty{display:none}
+.res #prog{margin:10px 0 14px;font:italic 400 17px/1.4 'EB Garamond',Georgia,serif;color:var(--soft)}
+.res .live{margin:0 0 4px}
+.res .live-l{margin:0 0 10px}
+.res #lv .slot{border-color:var(--rule)}
+.res .reset{margin-top:18px}
+.res .reset[hidden]{display:none}
+.hero-cta{display:flex;align-items:center;gap:18px;margin-top:22px;max-width:440px;padding:16px 16px 16px 20px;border:1px solid var(--edge);border-radius:16px;background:var(--bg);color:var(--ink);text-decoration:none;position:relative;overflow:hidden;transition:border-color .35s,box-shadow .35s,transform .3s cubic-bezier(.2,.8,.2,1)}
+.hero-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,var(--acc-soft) 50%,transparent 70%);transform:translateX(-100%);transition:transform .9s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.hero-cta:hover::before{transform:translateX(100%)}
+.hc-txt{position:relative;display:grid;gap:2px;flex:1;min-width:0}
+.hc-k{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--acc-ink)}
+.hc-t{font:600 21px/1.2 'EB Garamond',Georgia,serif}
+.hc-s{font:italic 400 16px/1.3 'EB Garamond',Georgia,serif;color:var(--soft)}
+.hc-ic{display:flex;gap:6px;margin-top:10px}
+.hc-ic i{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;background:var(--acc-soft);color:var(--acc-ink);transition:transform .45s cubic-bezier(.34,1.56,.64,1),background .3s,color .3s}
+.hc-ic svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.hero-cta:hover .hc-ic i{transform:translateY(-4px)}
+.hero-cta:hover .hc-ic i:nth-child(2){transition-delay:.04s}.hero-cta:hover .hc-ic i:nth-child(3){transition-delay:.08s}.hero-cta:hover .hc-ic i:nth-child(4){transition-delay:.12s}.hero-cta:hover .hc-ic i:nth-child(5){transition-delay:.16s}
+.hc-go{position:relative;flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--acc);color:var(--acc-ink);font-size:19px;transition:background .3s,color .3s,transform .3s cubic-bezier(.2,.8,.2,1)}
+.hero-cta:hover{border-color:var(--acc);box-shadow:0 18px 40px -24px var(--acc);transform:translateY(-2px)}
+.hero-cta:hover .hc-go{background:var(--acc);color:var(--bg);transform:translateX(3px)}
+@media(prefers-reduced-motion:reduce){.hero-cta::before{display:none}.hc-ic i,.hc-go,.hero-cta{transition:none}}
+.hc-go{width:auto!important;height:auto!important;border-radius:999px!important;padding:10px 16px;font:500 16px/1 'EB Garamond',Georgia,serif!important;display:inline-flex!important;align-items:center;gap:6px;background:var(--acc);color:var(--bg)!important;border-color:var(--acc)!important}
+.hc-go b{font-weight:400;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.hero-cta:hover .hc-go{transform:none!important}
+.hero-cta:hover .hc-go b{transform:translateX(3px)}
+.fcta{background:var(--acc)!important;color:#fff!important;padding:8px 8px 8px 20px!important;gap:12px!important;box-shadow:0 16px 36px -14px var(--acc),0 2px 6px rgba(0,0,0,.12)!important;cursor:pointer}
+.fcta .fc-s{font:italic 400 15.5px/1 'EB Garamond',Georgia,serif;opacity:.9}
+.fcta .fc-t{font:600 17px/1 'EB Garamond',Georgia,serif}
+.fc-go{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:#fff;color:#1d5d96;font-size:18px;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.fcta:hover .fc-go{transform:translateX(3px)}
+.fcta.pulse .fc-go{animation:fcp2 1.6s ease-out 3}
+@keyframes fcp2{0%{box-shadow:0 0 0 0 rgba(255,255,255,.8)}100%{box-shadow:0 0 0 12px rgba(255,255,255,0)}}
+@media(max-width:400px){.fcta .fc-s{display:none}}
+@media (prefers-color-scheme:dark){.fcta{background:#2f6fa8!important}}
+[data-theme=dark] .fcta{background:#2f6fa8!important}
+.hero-cta{background:var(--acc-soft)!important;border-color:transparent!important}
+.hero-cta::before{background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%)!important}
+.hero-cta:hover{border-color:var(--acc)!important}
+@media (prefers-color-scheme:dark){.hero-cta::before{background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.08) 50%,transparent 70%)!important}}
+.share.lite{padding:14px 18px}
+.share.lite .sh-row{margin-top:10px}
+.home-link{display:inline-block;margin-bottom:18px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;color:var(--acc-ink);text-decoration:none}.home-link:hover{text-decoration:underline}
+.take{margin:2em 0 .5em;padding:1.1em 1.3em;border-left:3px solid var(--acc);background:var(--acc-soft);border-radius:0 10px 10px 0}
+.take>span{display:block;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc-ink);font-weight:600;margin-bottom:.35em}
+.take p{margin:0;font-size:1.12em;line-height:1.55;color:var(--ink)}
+.orig b.ez{display:block;font-size:13px;letter-spacing:.04em;font-weight:600;margin-bottom:3px}
+.orig b.e1{color:var(--mute)}.orig b.e2{color:var(--acc-ink);opacity:.8}.orig b.e3{color:var(--acc-ink)}
+@media(max-width:640px){.orig b.ez{display:inline;margin-right:6px}}
+.ask-head{margin:0 0 1em;padding-top:1.4em;border-top:1px solid var(--rule)}
+.ask-head span{display:block;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc-ink);font-weight:600}
+.ask-head h2,.ask-head h3{margin:.25em 0 0;font-size:clamp(26px,3.2vw,34px);line-height:1.2;font-weight:500;font-style:italic;color:var(--ink)}
+.pull{border-left:2px solid var(--acc);padding:4px 0 4px 18px;font-size:22px;line-height:1.45;font-style:italic;margin:1.4em 0}
+.paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:1.2em 0 1.4em}
+.paths div{border-top:1px solid var(--ink);padding-top:10px}
+.paths b{display:block;font:600 16px/1.4 'EB Garamond',Georgia,serif;margin-bottom:4px}
+.paths span{font-size:17px;line-height:1.5;color:var(--soft)}
+ol.pulls{padding-left:1.2em;margin:0 0 1em}
+ol.pulls li{margin-bottom:.6em}
+.grid{border:1px solid var(--rule);border-radius:8px;overflow-x:auto;margin:6px 0 34px}
+.grid table{width:100%;table-layout:fixed;border-collapse:collapse;min-width:640px;font:400 15px/1.35 'EB Garamond',Georgia,serif}
+.grid th,.grid td{padding:11px 10px;border-bottom:1px solid var(--rule);text-align:center;vertical-align:middle}
+.grid tr:last-child td{border-bottom:0}
+.grid th{font-weight:600;font-size:14.5px;color:var(--soft);background:var(--panel)}
+.grid th button{all:unset;cursor:pointer}
+.grid th button:hover,.grid th.on{color:var(--acc-ink)}
+.grid td:first-child,.grid th:first-child{text-align:left;font-weight:600;color:var(--ink);white-space:nowrap}
+.grid td.on{background:var(--acc-soft)}
+.m{display:inline-flex;gap:3px;vertical-align:middle}
+.m i{width:9px;height:9px;border-radius:50%;background:var(--dot-off)}
+.m i.f{background:var(--acc)}
+.m i.h{background:linear-gradient(90deg,var(--acc) 50%,var(--dot-off) 50%)}
+.m i.p{background:color-mix(in srgb,var(--acc) 35%,var(--dot-off))}
+.lv{display:block;margin-top:4px;color:var(--soft)}
+.cards{display:grid;gap:18px}
+.card{border:1px solid var(--rule);border-radius:10px;padding:clamp(18px,2.4vw,28px);display:grid;grid-template-columns:minmax(0,1fr);gap:16px;scroll-margin-top:80px;transition:border-color .2s}
+
+.card h3{grid-column:1/-1;margin:0;font-size:26px;line-height:1.1;font-weight:600;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline}
+.card h3 small{font:500 15px/1.3 'EB Garamond',Georgia,serif;color:var(--acc-ink)}
+.card .desc{font-size:18px;line-height:1.55;max-width:760px}
+.card .ex{font:400 15px/1.5 'EB Garamond',Georgia,serif;color:var(--mute);margin-top:8px}
+dl{margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 32px;font:400 16px/1.45 'EB Garamond',Georgia,serif}
+dl div{display:grid;grid-template-columns:8.5em minmax(0,1fr);gap:10px;border-top:1px solid var(--rule);padding-top:9px}
+dt{font-weight:600}
+dd{margin:0;color:var(--soft)}
+dd em{display:block;font-style:normal;color:var(--mute);font-size:15px;margin-top:2px}
+.note{font:400 15px/1.5 'EB Garamond',Georgia,serif;color:var(--mute)}
+.survey{background:var(--panel);border-block:1px solid var(--rule)}
+.sv{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(20px,3vw,40px);align-items:start}
+.q{border:1px solid var(--rule);border-radius:14px;padding:18px 18px 16px;margin-bottom:12px;background:var(--bg);transition:border-color .35s ease,box-shadow .35s ease}
+.q.done{border-color:var(--acc);box-shadow:0 1px 0 var(--acc),0 8px 24px -16px var(--acc)}
+.q h3{margin:0 0 10px;font:600 17px/1.4 'EB Garamond',Georgia,serif}
+.q h3 span{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--rule);font-size:13px;color:var(--mute);margin-right:10px;vertical-align:1px;transition:background .3s,border-color .3s,color .3s,transform .4s cubic-bezier(.34,1.56,.64,1)}
+.q.done h3 span{background:var(--acc);border-color:var(--acc);color:var(--bg);transform:scale(1.08)}
+.q h3 .all{font-style:normal;font-weight:400;color:var(--mute);margin-left:8px;font-size:15px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts button{position:relative;font:500 16px/1.3 'EB Garamond',Georgia,serif;min-height:44px;padding:10px 18px;border-radius:999px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);cursor:pointer;text-align:left;transition:background .25s ease,border-color .25s ease,color .25s ease,box-shadow .25s ease,transform .18s cubic-bezier(.2,.8,.2,1),padding .3s cubic-bezier(.2,.8,.2,1);-webkit-tap-highlight-color:transparent}
+.opts button::before{content:'\2713';position:absolute;left:12px;top:50%;width:18px;height:18px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:700;background:var(--bg);color:var(--acc-ink);transform:translateY(-50%) scale(0);transition:transform .35s cubic-bezier(.34,1.56,.64,1)}
+.opts button:hover{border-color:var(--acc);transform:translateY(-1px);box-shadow:0 6px 16px -8px var(--acc)}
+.opts button:active{transform:scale(.97);transition-duration:.08s}
+.opts button[aria-pressed=true]{background:var(--acc);border-color:var(--acc);color:var(--bg);padding-left:38px;box-shadow:0 8px 20px -10px var(--acc)}
+.opts button[aria-pressed=true]::before{transform:translateY(-50%) scale(1)}
+.opts button:focus-visible,.reset:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.res{position:sticky;top:72px;max-height:calc(100vh - 90px);overflow:auto;background:var(--bg);border:1px solid var(--rule);border-radius:10px;padding:22px}
+.res h3{margin:0 0 4px;font:600 15px/1.4 'EB Garamond',Georgia,serif;color:var(--mute)}
+.tally{display:grid;gap:8px;margin:12px 0 18px;font:500 15px/1.3 'EB Garamond',Georgia,serif}
+.tally div{display:grid;grid-template-columns:9.5em minmax(0,1fr) 2em;gap:10px;align-items:center}
+.tally .t{height:10px;border-radius:5px;background:var(--rule);overflow:hidden}
+.tally .t i{display:block;height:100%;width:0;background:var(--edge);border-radius:5px;transition:width .6s cubic-bezier(.2,.8,.2,1),background .3s}
+.tally div{transition:color .3s}
+.tally div.lead{color:var(--acc-ink)}
+.tally div.lead .t i{background:var(--acc)}
+.tally div.lead b{color:var(--acc-ink)}
+.tally b{text-align:right;font-variant-numeric:tabular-nums;color:var(--soft)}
+.fit{border-top:1px solid var(--rule);padding-top:16px}
+.fit h4{margin:0;font-size:28px;line-height:1.1;font-weight:600}
+.fit .mo{font-style:italic;color:var(--soft);margin:8px 0 12px;font-size:18px}
+.fit .lbl{font:600 14.5px/1.4 'EB Garamond',Georgia,serif;color:var(--acc-ink);margin:12px 0 3px}
+.fit p{font-size:17px;line-height:1.5;margin:0}
+.ask{background:var(--acc-soft);border-radius:8px;padding:14px 16px;margin-top:14px}
+.ask p{font-size:19px}
+.reset{margin-top:16px;font:500 16px/1 'EB Garamond',Georgia,serif;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+#why .col>p:first-child::first-letter{float:left;font-size:3.6em;line-height:.85;padding:6px 10px 0 0;font-weight:600;color:var(--acc-ink)}
+.prog{position:fixed;top:0;left:0;height:3px;background:var(--acc);width:0;z-index:9}
+.merge{display:block;width:100%;height:70px;margin:-6px 0 6px}
+.merge path{fill:none;stroke:var(--acc);stroke-width:1.5;vector-effect:non-scaling-stroke;opacity:.7}
+.q-big{font-size:clamp(22px,2.4vw,26px);line-height:1.4;font-style:italic;text-align:center;margin:0 0 1.2em;text-wrap:balance}
+ol.pulls{list-style:none;padding:0;border-top:1px solid var(--ink)}
+ol.pulls li{display:grid;grid-template-columns:170px minmax(0,1fr);gap:16px;padding:12px 0;margin:0;border-bottom:1px solid var(--rule)}
+.pulls-head{display:grid;grid-template-columns:170px minmax(0,1fr);gap:16px;padding:0 0 8px;border-bottom:1px solid var(--ink);font-size:13.5px;font-weight:600;color:var(--mute);margin-top:1.4em}
+ol.pulls.pulls-t{border-top:0}
+@media(max-width:520px){.pulls-head span:last-child{display:none}}
+ol.pulls li b{font-size:17px;color:var(--acc-ink);font-weight:600}
+.mini{position:relative;height:6px;border-radius:3px;background:var(--rule);max-width:420px;margin-top:-4px}
+.mini i{position:absolute;top:0;height:100%;border-radius:3px;background:var(--acc)}
+.fit .lead{background:var(--acc-ink);color:var(--bg);border-radius:8px;padding:16px 18px;margin-bottom:6px}
+.fit .lead h4{color:var(--bg)}
+.fit .lead .mo{color:var(--bg);opacity:.85;margin-bottom:0}
+.prof{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}
+.prof div{border:1px solid var(--rule);border-radius:8px;padding:8px 10px;display:grid;gap:2px}
+.prof span{font-size:13px;color:var(--mute)}
+.prof b{font-weight:500;font-size:15px}
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.duo .lbl{margin-top:4px}
+.ru{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 10px;align-items:center;margin-top:14px;font-size:15px}
+.ru span:first-child{grid-column:1/-1;font-size:13px;color:var(--mute)}
+.ru .t{height:8px;border-radius:4px;background:var(--rule);overflow:hidden;grid-column:1}
+.ru .t i{display:block;height:100%;background:var(--acc)}
+.ru strong{grid-column:1/-1;font-weight:600}
+.ru b{font-weight:500;color:var(--soft)}
+footer{font:400 15px/1.6 'EB Garamond',Georgia,serif;color:var(--mute)}
+@media(max-width:900px){.top{grid-template-columns:minmax(0,1fr)}.sv{grid-template-columns:minmax(0,1fr)}.res{position:static}}
+@media(max-width:700px){dl{grid-template-columns:minmax(0,1fr)}.paths{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:520px){ol.pulls li{grid-template-columns:minmax(0,1fr);gap:2px}.axis span:first-child{display:none}body{font-size:18px}.rng,.tally div{grid-template-columns:7.2em minmax(0,1fr)}.tally b{display:none}.bar span{font-size:13px}dl div{grid-template-columns:minmax(0,1fr);gap:2px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.tally .t i,.card{transition:none}}
+
+/* interface */
+.m{gap:3px}.m i{width:14px;height:6px;border-radius:3px}
+.bar{border-radius:4px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 16px;padding:4px;background:var(--panel);border:1px solid var(--rule);border-radius:12px}
+.tabs button{flex:1 1 9em;min-height:44px;border:0;border-radius:9px;background:transparent;color:var(--soft);font:500 16px/1.2 'EB Garamond',Georgia,serif;cursor:pointer;padding:8px 10px}
+.tabs button[aria-selected=true]{background:var(--bg);color:var(--acc-ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.tabs button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.card{display:none}.card.show{display:grid}
+@media print{.card{display:grid}}
+.fit p.note{font-size:13px}
+.pick{border:1px solid var(--rule);border-radius:10px;padding:14px 16px;margin-top:10px}
+.pick{box-shadow:inset 3px 0 0 var(--acc)}
+.wx{font:600 15px/1.4 'EB Garamond',Georgia,serif;color:var(--acc-ink);margin:14px 0 0}
+.pick .no{font:600 13.5px/1.3 'EB Garamond',Georgia,serif;color:var(--acc-ink);margin:0 0 4px;letter-spacing:.02em}
+.pick h4{font-size:23px}
+.pick .tg{font-size:14px;color:var(--mute);font-style:italic;margin:4px 0 0}
+.mini2{margin:10px 0 0;display:grid;gap:8px}
+.mini2 div{display:block;border:0;padding:0}
+.mini2 dt{font-size:13px;color:var(--mute);margin:0}
+.mini2 dd{margin:0;font-size:16px;line-height:1.45}
+.src{border-top:1px solid var(--rule)}
+.src h2{font-size:clamp(22px,2.4vw,26px)}
+.note-lead{font-size:17px;color:var(--soft)}
+.srcs{font:400 16px/1.55 'EB Garamond',Georgia,serif;color:var(--soft);padding-left:1.3em;margin:0 0 1.2em}
+.srcs li{margin-bottom:6px}
+.srcs a,.note a{color:var(--acc-ink);text-underline-offset:2px}
+.src .note{margin-bottom:.7em}
+.figbox{margin:28px 0;padding:20px 0 4px;border-top:1px solid var(--ink)}
+.figbox h3{margin:0 0 4px;font-size:21px;line-height:1.25;font-weight:600;text-wrap:balance}
+.figbox .cap{margin:0 0 12px;font-size:16px;color:var(--soft)}
+.figbox .fig{position:relative;min-height:320px}
+.figbox .fig>svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.figbox svg text{font-family:'EB Garamond',Georgia,serif;font-size:14px;fill:var(--soft);paint-order:stroke;stroke:var(--bg);stroke-width:4px}
+.figbox svg .ax{stroke:var(--rule)}
+.figbox svg .lab{fill:var(--ink);font-weight:600}
+.ctl{display:flex;flex-wrap:wrap;gap:12px 24px;margin:0 0 10px;font-size:16px}
+.ctl label{display:flex;align-items:center;gap:8px}
+.ctl select{font:inherit;font-size:16px;padding:6px 10px;border:1px solid var(--rule);border-radius:8px;background:var(--bg);color:var(--ink);min-height:40px}
+.ctl input[type=range]{accent-color:var(--acc-ink);width:160px}
+#trust .figbox{max-width:680px}
+.figbox{margin:28px 0;padding:18px 0 4px;border-top:1px solid var(--ink)}
+.figbox h3{margin:0 0 4px;font-size:21px;line-height:1.25;font-weight:600;text-wrap:balance}
+.figbox .cap{margin:0 0 14px;font-size:16px;color:var(--soft)}
+.tl{display:grid;gap:14px;padding-top:24px}
+.tl-row{display:grid;grid-template-columns:176px minmax(0,1fr);gap:12px;align-items:center}
+.tl-name{font-size:16px;font-weight:600;line-height:1.2}
+.tl-track{position:relative;height:46px;border-radius:23px;background:var(--panel);border:1px solid var(--rule)}
+.tl-dot{position:absolute;top:50%;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 3px var(--bg)}
+.tl-lab{position:absolute;top:-22px;transform:translateX(-50%);font-size:13px;color:var(--soft);white-space:nowrap}
+.tl-burst{position:absolute;left:0;top:6px;bottom:6px;width:5%;min-width:34px;border-radius:17px;background:var(--acc);opacity:.9}
+.tl-call{position:absolute;left:calc(5% + 46px);top:50%;transform:translateY(-50%);font-size:15px;color:var(--ink);white-space:nowrap}
+.tl-axis{position:relative;margin-left:188px;height:18px;font-size:13px;color:var(--mute)}
+.tl-axis span{position:absolute;transform:translateX(-50%)}
+.tl-axis span:first-child{transform:none}
+.tl-axis span:last-child{transform:translateX(-100%)}
+.ig-wrap{overflow-x:auto}
+.ig{width:100%;border-collapse:collapse;min-width:620px;font-size:15px}
+.ig th,.ig td{padding:10px 8px;border-bottom:1px solid var(--rule);text-align:center}
+.ig th.grp{text-align:center;color:var(--ink);border-bottom:1px solid var(--rule);font-size:15px}
+.ig th{font-weight:600;font-size:14px;color:var(--soft);vertical-align:bottom;line-height:1.25}
+.ig td:first-child,.ig th:first-child{text-align:left;font-weight:600;color:var(--ink);white-space:nowrap}
+.ig i,.ig-key i{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;vertical-align:middle;font-style:normal;font-weight:600;font-size:17px;line-height:1}
+.ig i.up,.ig-key i.up{background:var(--acc);color:#fff}
+.ig i.dn,.ig-key i.dn{border:2px solid var(--ink);background:transparent;color:var(--ink)}
+.ig i.wk,.ig-key i.wk{border:2px dashed var(--mute);color:var(--mute);background:transparent;font-size:15px}
+.ig i.nu,.ig-key i.nu{width:10px;height:10px;background:var(--dot-off)}
+.ig-key{display:flex;flex-wrap:wrap;gap:8px 20px;margin:10px 0 6px;font-size:14px;color:var(--soft)}
+.ig-key span{display:flex;align-items:center;gap:8px}
+@media(max-width:600px){.tl-row{grid-template-columns:minmax(0,1fr);gap:26px}.tl-axis{margin-left:0}.tl-lab{font-size:11px}.tl-call{font-size:13px}}
+.rx{display:grid;grid-template-columns:10.5em minmax(0,1fr);gap:4px 16px;background:var(--acc-soft);border-radius:10px;padding:14px 16px;margin:12px 0 10px;font-size:17px;line-height:1.5}
+.rx b{color:var(--acc-ink)}
+@media(max-width:600px){.rx{grid-template-columns:minmax(0,1fr)}}
+.ig thead th{background:var(--acc-soft)}
+.ig tbody td:first-child{background:var(--acc-soft)}
+.ig th:first-child{border-top-left-radius:8px}
+.ig thead tr:first-child th{background:transparent}
+.ig thead tr:nth-child(2) th{border-top:1px solid var(--edge);border-bottom:1px solid var(--edge)}
+.ig thead tr:nth-child(2) th:first-child{border-left:1px solid var(--edge)}
+.ig thead tr:nth-child(2) th:last-child{border-right:1px solid var(--edge)}
+.ig tbody td:first-child{border-left:1px solid var(--edge);border-right:1px solid var(--edge)}
+.ig tbody tr:first-child td:first-child{border-top:1px solid var(--edge)}
+.ig tbody tr:last-child td:first-child{border-bottom:1px solid var(--edge)}
+.ig thead tr:first-child th{border-bottom:1px solid var(--edge)}
+.ig thead tr:first-child th:first-child{border-bottom-color:var(--edge)}
+.reach{padding-bottom:0}
+.reach-p{font-size:20px;line-height:1.55;border-left:2px solid var(--acc);padding-left:18px}
+.reach-p a{color:var(--acc-ink);text-underline-offset:3px;white-space:nowrap}
+
+/* polish */
+.grid td:first-child,.grid th:first-child{position:sticky;left:0;z-index:1;background:var(--bg)}
+.grid th:first-child{background:var(--panel)}
+.ig td:first-child{position:sticky;left:0;z-index:1}
+.ig thead tr:first-child th:first-child{position:sticky;left:0;z-index:2;background:var(--bg)}
+.ig thead tr:nth-child(2) th:first-child{position:static}
+.sbar{display:none}
+@media(max-width:600px){
+.tabs{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+.tabs button{flex:none}
+.ig th.grp{text-align:left;padding-left:8px}
+.sbar{position:fixed;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));z-index:8;display:none;align-items:center;justify-content:space-between;gap:10px;background:var(--acc-ink);color:var(--bg);border-radius:12px;padding:12px 14px;font-size:15px;box-shadow:0 4px 18px rgba(0,0,0,.18);text-decoration:none}
+.sbar.on{display:flex}
+.sbar b{font-weight:600}
+}
+@media print{nav,.prog,.tabs,.survey,.reach,.sbar,#rng button{display:none!important}.card{display:grid!important;break-inside:avoid}body{font-size:12pt}a{color:inherit}}
+</style>
+</head>
+<body>
+<div class="prog" id="prog-bar"></div>
+
+<header class="band">
+<div class="wrap top">
+<div>
+<a class="home-link" href="/">Garrett Clinton · Writing</a>
+<h1>Wealth Manager, Private Bank, Family Office, or Robo-Advisor?</h1>
+<p class="sub">Finding the Right Fit for Your Family</p>
+<p class="dek">Field notes on trust, incentives, and the family institutions being formed today</p>
+<p class="by">Garrett Clinton · November 2026</p>
+<a class="hero-cta" href="#survey"><span class="hc-txt"><span class="hc-k">Interactive survey</span><span class="hc-t">Which model fits your family?</span><span class="hc-s">Answer six questions to see which models fit you best.</span></span><span class="hc-go" aria-hidden="true">Start <b>→</b></span></a>
+</div>
+<div class="chart">
+<h2>Where each option usually starts serving families</h2>
+<p>Select one to see its profile.</p>
+<div class="rng" id="rng"></div>
+</div>
+</div>
+</header>
+
+<nav aria-label="Sections"><div class="wrap">
+<a href="#why">Introduction</a><a href="#moment">Valuing the moment</a><a href="#trust">Incentives and the architecture of trust</a><a href="#origins">How did your company start?</a><a href="#options">The models that serve families</a><a href="#survey">What could work best for you?</a><a href="#sources">Sources and notes</a>
+</div></nav>
+
+<main>
+<section class="band" id="why"><div class="wrap col">
+<p>For the past year here at Stanford, I have been researching how first-generation wealth creators build trust with the people who ultimately end up advising them.</p>
+<p>My interest here began early in my career. The multigenerational families I worked with then had spent decades building endowment-style structure around themselves: best-in-class liquidity and tax strategy, careful trust and estate planning, clear decisions about which teams to keep in-house or outsource, and a disciplined investment process to tie it all together.</p>
+<p class="pull">Today, most first-generation families are being asked to make those same decisions in a matter of months, and often all at once.</p>
+<p>After years spent creating and building, I've noticed these families rarely get the time to shift toward preserving it. So, over the last year, I have spent time with families, principals, CIOs, and advisors at very different moments, from the months before a company goes public to the years after a major athletic contract or a pivotal inheritance. What began as a personal curiosity about the right mode of investing for first-generation wealth creators has evolved into a study of the behavioral incentives behind the different models that serve families as they begin to take on the work of an institution.</p>
+<div class="take"><span>My view</span>
+<p>My research so far suggests that comparing fees alone tells families surprisingly little about the value they’re receiving or the incentives shaping their advice. I believe there are three core questions beyond fees that are crucial to ask when selecting an advisor:</p>
+<div class="tk5">
+<div class="tk5-cap">Beyond the fee</div>
+<a class="l1" href="#trust"><b>01</b><span><strong>How is your advisor paid?</strong><em>An advisor might earn a share of your assets, a commission on products, interest on lending, or a flat fee, and each one rewards different advice.</em></span><i aria-hidden="true">→</i></a>
+<a class="l2" href="#fig-pull"><b>02</b><span><strong>How does your advisor respond to your decisions?</strong><em>Paying down debt, holding cash, or moving money elsewhere can raise or lower what your advisor earns. Understanding the incentives built around your assets is part of protecting them.</em></span><i aria-hidden="true">→</i></a>
+<a class="l3" href="#origins"><b>03</b><span><strong>Behind your advisor is a company. How did that company start?</strong><em>The business a company was first built to run, and the clients who first paid it, can say a lot about the frame of thinking its advisors bring to your family.</em></span><i aria-hidden="true">→</i></a>
+</div></div>
+</div></section>
+
+<section class="band" id="moment" style="padding-top:0"><div class="wrap col">
+<h2>Valuing the moment</h2>
+<div class="paths">
+<div><b>Founders</b><span>You have probably spent an entire market cycle making consequential decisions for your business, all while building the muscle of being responsible for others.</span></div>
+<div><b>Early employees</b><span>You committed to a company before most people believed in it and stayed through the stretches.</span></div>
+<div><b>Athletes</b><span>You built an empire on discipline and performance, in an unbelievably short amount of time.</span></div>
+</div>
+<svg class="merge" viewBox="0 0 600 70" preserveAspectRatio="none" aria-hidden="true"><path d="M100 0 C100 45 300 30 300 70"/><path d="M300 0 L300 70"/><path d="M500 0 C500 45 300 30 300 70"/></svg>
+<p class="q-big">What is the best way to design the next chapter of your family's legacy and assets, while honoring who you are and what you most care about?</p>
+<p>The choice between building something of your own and handing the work to an outside firm tends to come all at once, usually before anyone in your family has had the chance to understand what each option asks of you. As a result, it is easy to settle into a wealth management model by default, long before you would have chosen one with the same intention you have given to your career.</p>
+<p>The families who fare best are those who understand what the business model <em>rewards</em> relative to what the family <em>values</em>.</p>
+</div></section>
+
+
+<section class="band" id="trust" style="padding-top:0"><div class="wrap col">
+<h2>Incentives and the architecture of trust</h2>
+<p>Across my conversations with families and the advisors, agents, managers, and teams around them, the first priorities raised are rarely returns or fees. Trust, privacy, next-generation education and, in some cases, greater autonomy matter far more.</p>
+<p>Each of those comes down to who a family trusts with its affairs, and how that relationship is paid.</p>
+<p class="pull">Do I like this person, and can they do the job?</p>
+<p>These are the two questions families ask most often when choosing an outside partner for their investments. The strongest external partners, however, hold up to three pillars: character, competence, and <strong><em>behavioral incentives</em></strong> the family understands. Every way of paying an advisor shapes what they are inclined to recommend, and understanding that early is a way of respecting both the advisor and the family.</p>
+<div class="pulls-head"><span>How the advisor is paid</span><span>What it means for you</span></div>
+<ol class="pulls pulls-t">
+<li><b>Asset fees</b><span>Some advisors are paid a percentage of the money they manage for you. Their pay is tied to the amount of assets you keep with them, so they may be less eager when you want to move money out to pay down debt or start a business.</span></li>
+<li><b>Products</b><span>Some advisors are paid when you buy an investment product, such as a fund or an insurance policy. If their company also makes its own funds, it earns a fee on those funds on top of the asset or flat fee you may already pay.</span></li>
+<li><b>Cash and lending</b><span>Some advisors work for a bank that also earns money from your cash and your loans. For example, the bank might pay you 1% on cash sitting in your account while earning 4% on it, and it collects interest when you borrow against your investments. Neither shows up in the advisor’s fee, but both give the bank a reason to keep your cash and to suggest borrowing.</span></li>
+<li><b>Carry</b><span>Some investors are paid a share of the profit when an investment is sold at a gain. They share in the wins but not the losses, which can encourage bigger, riskier bets than your situation calls for.</span></li>
+<li><b>Flat fees</b><span>Some advisors charge a set annual fee, no matter how much you have or how it is invested. That removes most of these conflicts, but every extra request costs the advisor time without adding pay. As your needs grow, with a new trust, a business sale, or a family member to support, the fee often has to be revisited so that pay keeps pace with the work, and until it is, the advisor has a reason to do less.</span></li>
+</ol>
+<figure class="figbox" id="fig-pull">
+<h3>How an advisor is paid changes their revenue from your decisions</h3>
+<p class="cap">Find how your advisor is paid, then read across the row to see how each of your decisions affects what they earn.</p>
+<div class="ig-wrap"><table class="ig" id="ig"></table></div>
+<div class="ig-key"><span><i class="up">+</i>Revenue rises</span><span><i class="dn">&minus;</i>Revenue falls</span><span><i class="nu"></i>No real difference</span><span><i class="wk">=</i>Same revenue, more work</span></div>
+<p class="note">This chart shows the general direction of an advisor’s revenue, not their profit. A flat-fee advisor earns the same when you ask for more help, but the extra work makes the relationship less profitable for them. Plenty of good advisors recommend decisions that earn them less, and many firms mix several of these pay structures.</p>
+</figure>
+<p>None of this makes anyone dishonest, and many of the best advisors work well within exactly these structures. My research has taught me that families are comfortable paying for good advice, as long as they understand how it is paid for. Trust tends to break when they later learn the incentives behind their advisor were not aligned with the long-term goals of their family.</p>
+</div></section>
+
+<section class="band" id="origins" style="padding-top:0"><div class="wrap col">
+<div class="ask-head"><span>Ask any advisor you are considering</span><h2>“How did your company start?”</h2></div>
+<p>Most advisors work within a larger company, and how that company started can tell you a lot about the frame of thinking its advisors bring to your family. The business it was first built to run, and the clients who first paid it, still show up in what it does well, whom it hires, and what it suggests first. Most advisors work for a company that traces back to one of four starting points, and each tends to show up as one of the options in this piece.</p>
+<figure class="figbox orig-fig">
+<table class="orig">
+<thead><tr><th>The company started as</th><th>First paid for</th><th>Tends to suggest first</th><th>How hard to add later</th></tr></thead>
+<tbody>
+<tr><td>A brokerage<small>Often a wealth advisor at a large brokerage</small></td><td>Trades and products sold</td><td>Its own products, and keeping your money on its platform</td><td><b class="ez e1">Easier</b>Trading and custody are easy to source</td></tr>
+<tr><td>A bank or trust company<small>Often a private bank</small></td><td>Loans, deposits, and holding assets</td><td>Borrowing against what you own</td><td><b class="ez e2">Moderate</b>Many banks will lend</td></tr>
+<tr><td>A planning or tax practice<small>Often an independent planner or planning app</small></td><td>Financial plans and tax filings</td><td>Outside managers for the investing</td><td><b class="ez e1">Easier</b>Tax and planning talent is easier to hire</td></tr>
+<tr><td>An investment office<small>Often a multi-family or single-family office</small></td><td>Managing an owner’s money</td><td>Endowment-style portfolios</td><td><b class="ez e3">Harder</b>Investment talent is rare and slow to build</td></tr>
+</tbody></table>
+</figure>
+<p>Read down the second column. Three of the four began by earning from something sold alongside the advice: a product, a loan, or a plan. The fourth began by being paid to manage the money itself, so its pay is tied to how that money grows over time. Every company adds services over time, and most have added plenty, though some are far easier to add than others, as the last column shows. Ask an advisor how their company started, and how it makes most of its money today, and you learn a lot about what they will suggest.</p>
+</div></section>
+
+<section class="band" id="options" style="padding-top:0"><div class="wrap">
+<div class="col">
+<h2>The models that serve families</h2>
+<p>Robo-advisors, private wealth advisors, private banks, independent multi-family offices, and single-family offices each have a long record of serving certain families well, and which one fits depends most on the moment a family is in and what it wants for the people it is planning for.</p>
+<div class="ai-note"><span>Looking ahead</span><p>Across all five, AI is lowering the cost of work that once required a large team. That is shifting where each option makes sense, and it is likely to change these ranges over the next few years.</p></div>
+</div>
+<div class="grid" id="grid"></div>
+<div class="tabs" role="tablist" id="tabs"></div>
+<div class="cards" id="cards"></div>
+<p class="note" style="margin-top:14px">Ranges and fees are typical and vary widely by firm. Firm names are illustrative, not endorsements. See <a href="#sources">sources and notes</a>.</p>
+</div></section>
+
+<section class="band survey" id="survey"><div class="wrap">
+<div class="col"><h2>What could work best for you?</h2>
+<p>These six questions ask about the moment your family is in, who you are planning for, and how you prefer to work with advisors, and some allow more than one answer. The page then suggests two models to look into, along with the tradeoffs of each and questions to ask the firms you meet.</p>
+<p class="note">Responses are stored only on this device and are shared only if you choose to after viewing your result.</p></div>
+<form name="fit-share" data-netlify="true" netlify-honeypot="bot" hidden><input name="bot"><input name="answers"><input name="top"><input name="day"></form>
+<div class="sv">
+<div id="qs"></div>
+<aside class="res" aria-live="polite">
+<div class="svp"><div class="svp-bar"><i id="svp-i"></i></div><div class="svp-dots" id="svp-d"></div></div>
+<h3 id="prog">Answer a question to begin</h3>
+<div class="live" id="live"><p class="live-l" id="live-l" hidden></p><div class="lv" id="lv" role="tablist"></div></div>
+<div id="fit" style="scroll-margin-top:80px"></div>
+<button class="reset" id="reset" type="button">Start over</button>
+</aside>
+</div>
+</div></section>
+
+<section class="band reach" id="reach"><div class="wrap col">
+<p class="reach-p">Thanks for reading! I will be continuing this research through the rest of my time at Stanford. If you have been through one of these moments, or are in one now, I would be honored to hear how you thought about it or are approaching it. Feel free to write me at <a href="mailto:gclinton@stanford.edu">gclinton@stanford.edu</a> or send me a message on <a href="https://www.linkedin.com/in/garrettclinton/" target="_blank" rel="noopener">LinkedIn</a>.</p>
+</div></section>
+<section class="band src" id="sources"><div class="wrap col">
+<h2>Sources and notes</h2>
+<p class="note-lead">This piece draws on a year of conversations with families, principals, CIOs, and advisors, supplemented by the industry sources below. Individual conversations are not attributed.</p>
+<ol class="srcs">
+<li>J.P. Morgan Private Bank, <a href="https://privatebank.jpmorgan.com/nam/en/insights/reports/2026-family-office-report">2026 Global Family Office Report</a>. Single-family office operating costs by size.</li>
+<li>Morgan Lewis, <a href="https://www.morganlewis.com/pubs/2026/07/control-cost-and-complexity-finding-the-right-family-office-model">Control, Cost, and Complexity: Finding the Right Family Office Model</a> (July 2026). Single-family, multi-family, hybrid, and outsourced models.</li>
+<li>Cambridge Associates, <a href="https://www.cambridgeassociates.com/wp-content/uploads/2023/04/2023-04-Determining-the-Right-Price-A-Wealth-Management-Cost-Framework-For-Families.pdf">Determining the Right Price: A Wealth Management Cost Framework for Families</a> (2023). Total cost of family wealth management.</li>
+<li>Mercer Capital, <a href="https://mercercapital.com/family-business-director/the-family-office">The Family Office</a>. Asset thresholds for single- and multi-family offices.</li>
+<li>Cerulli Associates research on U.S. high-net-worth market share, as reported by <a href="https://www.thinkadvisor.com/2020/12/03/the-rich-are-getting-richer-and-thats-good-for-advisors-cerulli/?amp=1">ThinkAdvisor</a>.</li>
+</ol>
+<p class="note">Asset ranges for robo-advisors, wealth advisors, and private banks are the author's estimates based on common industry practice. All ranges are typical, not published minimums, and vary widely by firm and by family. The faded ends of the ranges in the opening chart, the incentive grid, the firm-origins table, and the survey weights reflect the author's judgment from these conversations and industry reading, not a single dataset.</p>
+<p class="note">Firm names are illustrative examples of each model, not endorsements or recommendations. None of the firms named sponsored, reviewed, or contributed to this piece. Ratings are directional and reflect how each model typically works, not any individual firm.</p>
+<p class="note">The author is an MBA student at Stanford and has spent his career in institutional investing. Views are the author's own and do not represent Stanford or any employer. For education only, not investment, tax, or legal advice.</p>
+</div></section>
+</main>
+
+<a class="fcta" id="fcta" href="#survey" aria-label="Go to the survey: which model fits your family?"><span class="fc-s">Which model fits your family?</span><span class="fc-t">Take the survey</span><span class="fc-go" aria-hidden="true">→</span></a>
+<a class="sbar" id="sbar" href="#fit"><span id="sbar-t">0 of 6 answered</span><b>See result</b></a>
+<footer class="band"><div class="wrap col">© 2026 Garrett Clinton</div></footer>
+
+<script>
+{
+const O=[
+{k:'dig',ws:'Your needs are simple and you like handling things yourself.',ps:'Some robo-advisors also earn on balances, referrals, or upgrades.',n:'Robo-Advisors',s:'Robo-Advisors & Planning Tools',tlo:5e4,thi:3e6,lo:1e5,hi:1e6,ra:'Up to $1M',
+d:'Automated investing apps and planning software that build and rebalance a portfolio for you, some with a human advisor available on call.',
+ex:'Wealthfront, Betterment, Schwab Intelligent Portfolios, Range',
+short:'Low-cost automation',best:'Low-cost, diversified portfolios with automatic rebalancing and tax-loss harvesting',
+who:'Often first accounts, early savers, and self-directed investors.',
+inc:'A small share of assets each year, or a flat subscription',
+incw:'Costs and product incentives are both low, so the question is whether AI or software offers enough judgment for your situation.',
+m:[[1,'Light','Software does most of the work, with human help on request'],[2,'Moderate','Low for the portfolio, which runs itself, and high for anything beyond it, which the family handles alone'],[1,'Simple','Individual and retirement accounts'],[4,'Full','Though the family is largely on its own']],
+pm:['Limited','A few platforms now offer selected private funds, but little help with direct deals, capital calls, or valuing private holdings.'],
+watch:'They offer little judgment on private investing, equity compensation, concentrated stock, or estate planning.',
+why:'Your needs are fairly simple, you value doing it yourself, and you are comfortable steering without a dedicated advisor.',
+pull:'Some platforms also earn on balances, referrals, or upgrades, and few offer judgment on the large, one-time decisions.',
+ask:'How does the company earn beyond my fee?'},
+{k:'pwm',ws:'You want one trusted person coordinating the whole picture.',ps:'Pay tied to assets or products can shape the advice.',n:'Wealth Advisors',s:'Private Wealth Advisors',tlo:5e5,thi:2e8,lo:1e6,hi:2.5e7,ra:'$1M to $25M',
+d:'An individual advisor or small team, often called a wealth manager, who manages the family’s portfolio and coordinates its planning with outside tax and estate professionals. The relationship centers on that person, whether they work at a large brokerage firm or run an independent practice, and banking or lending, when offered, comes second. Many of these advisors work inside banks, as Merrill does within Bank of America, but the same company usually runs a separate private bank for larger families, so the difference lies in who leads the relationship: an individual advisor here, a bank team there.',
+ex:'Advisors at Merrill, Goldman Sachs, or Morgan Stanley, and independent registered investment advisors',
+short:'Personal planning and portfolio management',best:'Personal financial planning and portfolio management, coordinated with your tax, insurance, and estate professionals',
+who:'Often early employees, professionals, and families after a first liquidity event.',
+inc:'A share of assets each year, a flat annual fee, or commissions on products',
+incw:'An asset fee can make advice to pay down debt or buy a business harder to give, and commissions reward each product sold, so ask how the advisor is paid on every recommendation.',
+m:[[2,'Moderate','One point of contact who coordinates with tax and estate professionals'],[2,'Moderate','Periodic reviews and sign-off on major decisions'],[2,'Moderate','Several accounts and a basic trust'],[2,'Moderate','The advisor recommends and the family approves']],
+pm:['Selective','Access usually runs through the firm\u2019s approved private funds, with less help on outside direct investments or startup equity.'],
+watch:'You can become dependent on one advisor, and larger firms may limit the range and quality of products they offer.',
+why:'You want one trusted person managing the portfolio and coordinating specialists while your attention stays on your life and work.',
+pull:'Paid on assets, there is less reason to help assets move elsewhere. Paid on products, there is more reason to recommend them. Many firms combine both.',
+ask:'What happens to your pay when I move assets elsewhere, and do you earn anything on what you recommend?'},
+{k:'bank',ws:'You want borrowing and banking alongside investing in one place.',ps:'The bank also earns on lending, deposits, and its own funds.',n:'Private Banks',s:'Private Banks',tlo:5e6,thi:1e9,lo:1e7,hi:4e8,ra:'$10M and up',
+d:'A bank’s dedicated division for larger families, where a team led by a private banker pairs investing with the bank’s own lending, credit lines, trust company, and everyday banking. Many large banks run both a wealth advisory arm and a private bank, and it is worth knowing which one you are working with. Families often reach a private bank through their advisor, since borrowing against a portfolio is simplest at the bank affiliated with the firm that holds it.',
+ex:'J.P. Morgan Private Bank, Citi Private Bank, UBS',
+short:'Lending and liquidity',best:'Borrowing against stock or a portfolio instead of selling it, especially around a liquidity event, plus trust services and global reach',
+who:'Often founders near a liquidity event and families who borrow against their assets.',
+inc:'A share of assets each year, plus interest on loans and fees on the bank’s own funds',
+incw:'The bank earns more as more of the relationship runs through it, so ask which recommendations use its own products, how good those products are, and what the outside alternative would be.',
+m:[[3,'High','A team spanning investing, lending, and trust'],[1,'Low','The bank’s team handles most of the work'],[3,'Complex','Trusts and holding companies'],[1,'Low','Decisions often run through the bank’s own platform']],
+pm:['Strong access','Access runs through the bank\u2019s own and partner private funds, often with an extra layer of fees and rarely with advice on outside direct deals.'],
+watch:'Advisor and staff turnover can be high, and the bank has an incentive to favor its own products, funds, and lending.',
+why:'Your life includes borrowing, property, and day-to-day needs, and you value having all of it in one place.',
+pull:'The bank also earns on lending, deposits, and its own funds, so it helps to know how each of those is priced.',
+ask:'How much of what you recommend is your own product, and what do you earn on lending and deposits?'},
+{k:'mfo',ws:'You want an independent team coordinating across entities and generations.',ps:'Fees folded into one number can hide what each service costs.',n:'Multi-Family Offices',s:'Independent Multi-Family Offices',tlo:1e7,thi:1.5e9,lo:2.5e7,hi:5e8,ra:'$25M to $500M',
+d:'A firm serving a limited number of families across investments, tax, estate planning, and the family itself, including governance and preparing the next generation. The firm is not tied to a bank, so it can compare providers on the family’s behalf, from lenders to investment managers, and use the weight of all the families it serves to get better terms and access. These firms range from boutiques where a few partners serve a few dozen families to national firms overseeing hundreds of billions of dollars, and the experience differs with scale.',
+ex:'National firms such as Pathstone and Cresset, and many smaller regional and boutique offices',
+short:'Coordination and bargaining power',best:'Coordinating investments, tax, estate, and family governance in one place, and using the combined bargaining power of many families to secure better pricing and access to sought-after managers, private funds, and direct deals',
+who:'Often founders, athletes, and multigenerational families.',
+inc:'A share of assets each year, often lower for larger families, or a fixed annual retainer',
+incw:'A retainer keeps advice separate from how much is invested, so ask whether the firm offers its own investment products as an option the family can choose, or as the main path for the family’s investments.',
+m:[[3.5,'Very high','A dedicated team coordinating nearly every part of the family’s affairs'],['2-4','Flexible','As involved as the family wants, from setting direction to working through each decision with the team'],[3,'Complex','Multiple trusts, operating companies, and foundations'],[3,'High','The family directs priorities and the firm carries them out']],
+pm:['Built for it','These firms handle co-investments, direct deals, and planning for capital calls across entities.'],
+watch:'Minimums are higher, small teams can stretch thin, and depth varies widely, since some firms offer a deep bench across tax, estate, and investing while others work more like a traditional advisor.',
+why:'Your life spans entities, households, or generations, and you want a small, independent team that knows your family and coordinates all of it.',
+pull:'When services are folded into one asset fee, it can be harder to see what each piece costs. The strongest firms walk you through exactly how the fee is built.',
+ask:'How is your fee built, and what would each service cost on its own?'},
+{k:'sfo',ws:'You want full control and privacy, and have the scale to staff it.',ps:'How you pay the team sets its incentives.',n:'Single-Family Offices',s:'Single-Family Offices',tlo:5e7,thi:3e9,lo:1e8,hi:3e9,ra:'$100M and up',
+d:'A private team built and owned by one family, running its investments, taxes, administration, and often its philanthropy. Some families stop short of a full office, hiring one or two people of their own to coordinate outside specialists in tax, legal, and investing, an arrangement often called a hybrid or virtual family office.',
+ex:'',
+short:'Full control and privacy',best:'Full control, privacy, and a team whose only priority is one family',
+who:'A full in-house investment team usually makes sense above $250M, for families with the scale to staff their own office.',
+inc:'Funded directly by the family, which pays the full cost of running the office',
+incw:'The office answers only to the family, so the question becomes whether its staff is rewarded for the family’s long-term goals or for short-term results.',
+m:[[4,'Full','A staff that works only for the family'],[4,'Very high','The family hires, oversees, and governs the office'],[4,'Highly complex','Many entities, jurisdictions, and generations'],[4,'Full','The family owns every decision']],
+pm:['Fully in the family\u2019s hands','Direct deals are included, and quality depends on the team the family hires.'],
+watch:'Hiring and keeping strong talent is costly, and governing the office falls on the family.',
+why:'You have the scale to support a dedicated team and want full control and privacy over how it operates.',
+pull:'You set the incentives through how you pay the team, and it takes deliberate effort to make sure the team brings you bad news as readily as good.',
+ask:'How is the team paid, and what does each person’s pay reward?'}];
+const T=['Support level','Family involvement','Complexity','Autonomy'];
+const meter=v=>{let c='';for(let i=1;i<=4;i++){let cl='';if(v==='2-4')cl=i<=2?'f':'p';else if(i<=v)cl='f';else if(i-.5===v)cl='h';c+=`<i class="${cl}"></i>`}return `<span class="m" aria-hidden="true">${c}</span>`};
+const L0=5,L1=9.5,x=v=>((Math.log10(v)-L0)/(L1-L0))*100;
+document.getElementById('rng').innerHTML=O.map(o=>{const l=x(o.lo),w=x(o.hi)-l;return `<button type="button" data-k="${o.k}">${o.n}</button><div class="track"><div class="tail" style="left:${Math.max(0,x(o.tlo))}%;width:${Math.min(100,x(o.thi))-Math.max(0,x(o.tlo))}%"></div><div class="bar${x(o.hi)>70?' r':''}" style="left:${l}%;width:${w}%"><span>${o.ra}</span></div></div>`}).join('')+'<div class="axis">'+[[1e5,'$100K'],[1e6,'$1M'],[1e7,'$10M'],[1e8,'$100M'],[1e9,'$1B+']].map(([v,t])=>`<span style="left:${x(v)}%">${t}</span>`).join('')+'</div>';
+document.querySelectorAll('#rng .track').forEach(t=>t.style.background=[1e5,1e6,1e7,1e8,1e9].map(v=>`linear-gradient(var(--rule),var(--rule)) ${x(v)}% 0/1px 100% no-repeat`).join(','));
+const g=document.getElementById('grid');
+g.innerHTML=`<table><thead><tr><th scope="col">At a glance</th>${O.map(o=>`<th scope="col" data-k="${o.k}"><button type="button" data-k="${o.k}">${o.n}</button></th>`).join('')}</tr></thead><tbody>`+
+`<tr><td>Best at</td>${O.map(o=>`<td data-k="${o.k}">${o.short}</td>`).join('')}</tr>`+
+`<tr><td>Investable assets</td>${O.map(o=>`<td data-k="${o.k}" style="white-space:nowrap">${o.ra}</td>`).join('')}</tr>`+
+T.map((t,i)=>`<tr><td>${t}</td>${O.map(o=>`<td data-k="${o.k}">${meter(o.m[i][0])}<span class="lv">${o.m[i][1]}</span></td>`).join('')}</tr>`).join('')+`</tbody></table>`;
+document.getElementById('cards').innerHTML=O.map(o=>`<article class="card" id="opt-${o.k}"><h3>${o.s}<small>${o.ra}</small></h3><div class="mini" aria-hidden="true"><i style="left:${x(o.lo)}%;width:${x(o.hi)-x(o.lo)}%"></i></div><div><div class="desc">${o.d}</div>${o.ex?`<div class="ex">Examples: ${o.ex}</div>`:''}</div><dl><div><dt>Best at</dt><dd>${o.best}</dd></div><div><dt>Typical client size, after tax</dt><dd>${o.ra}<em>${o.who}</em></dd></div><div><dt>Incentives</dt><dd>${o.inc}<em>${o.incw}</em></dd></div><div><dt>Private markets</dt><dd>${o.pm[0]}<em>${o.pm[1]}</em></dd></div>${T.map((t,i)=>`<div><dt>${t}</dt><dd>${meter(o.m[i][0])} ${o.m[i][1]}<em>${o.m[i][2]}</em></dd></div>`).join('')}<div><dt>Watch for</dt><dd>${o.watch}</dd></div></dl></article>`).join('');
+document.getElementById('tabs').innerHTML=O.map(o=>`<button type="button" role="tab" id="tab-${o.k}" data-k="${o.k}" aria-selected="false">${o.n}</button>`).join('');
+const pick=(k,scroll)=>{document.querySelectorAll('#grid [data-k]').forEach(e=>{if(e.tagName==='TD'||e.tagName==='TH')e.classList.toggle('on',e.dataset.k===k)});document.querySelectorAll('.card').forEach(c=>c.classList.toggle('show',c.id==='opt-'+k));document.querySelectorAll('#tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.k===k?'true':'false'));if(scroll)document.getElementById('tabs').scrollIntoView({block:'start'})};
+pick('dig',false);
+document.addEventListener('click',e=>{const b=e.target.closest('#rng button,#grid th button');if(b)pick(b.dataset.k,true);const t=e.target.closest('#tabs button');if(t)pick(t.dataset.k,false)});
+const navs=[...document.querySelectorAll('nav a')];const spy=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting)navs.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+en.target.id))})},{rootMargin:'-40% 0px -55% 0px'});document.querySelectorAll('main section[id]').forEach(x=>spy.observe(x));
+const Q=[
+{q:'What just happened, or is about to?',o:[['My company is heading to an IPO or tender',{pwm:2,mfo:1,dig:1},'Before liquidity, the most valuable work is planning around concentration, taxes, and timing while you still have choices.'],['I just sold my company',{mfo:2,pwm:1,sfo:1,bank:1},'The first year after a sale tends to set the habits that last: what you commit to, who you bring in, and who decides.'],['I signed a major contract or deal',{pwm:2,mfo:1},'Careers can move quickly, so the plan has to hold up for the years after the contract as well.'],['I received an inheritance or family transfer',{mfo:2,bank:1,pwm:1},'An inheritance arrives with decisions someone else started, and the first step is understanding them before changing them.'],['I have been building steadily over years',{dig:2,pwm:2},'Steady growth gives you time to choose deliberately and to adjust as the picture grows.']]},
+{q:'How much support is already around you?',o:[['No one yet, I have been handling it myself',{dig:2,pwm:2}],['One advisor I trust',{pwm:3}],['A few specialists who work separately',{mfo:3,bank:1}],['A coordinated team already in place',{sfo:2,mfo:2}]]},
+{q:'Who are you planning for?',multi:1,o:[['Me and my partner',{dig:1,pwm:1}],['My kids and the next generation',{mfo:2,sfo:1}],['Parents and extended family as well',{pwm:2,mfo:1}],['A cause or foundation as well',{mfo:2,sfo:1}]]},
+{q:'How involved do you want to be?',o:[['Handle it and keep me informed',{pwm:2,bank:2}],['Explain it, and I decide the big calls',{mfo:2,pwm:1}],['I want to build and run it',{sfo:2,dig:2}]]},
+{q:'What feels most complicated right now?',multi:1,o:[['Investing the portfolio',{pwm:2,dig:1}],['Equity, taxes, and timing around a liquidity event',{pwm:2,mfo:1,bank:1}],['Borrowing, property, and cash needs',{bank:3}],['Trusts, entities, and estate planning',{mfo:2,sfo:1,bank:1}],['Private investments and direct deals',{mfo:2,sfo:2}],['The family: next generation, governance, and giving',{mfo:3,sfo:1}]]},
+{q:'What matters most in who you trust?',multi:1,o:[['Low cost and simplicity',{dig:3,pwm:1}],['One person who knows us well',{pwm:3}],['Everything at one institution',{bank:3}],['Advice independent of any product',{mfo:3,sfo:1}],['Control and privacy, with decisions made by us',{sfo:3}]]}];
+let A={};
+try{A=JSON.parse(localStorage.getItem('fit-answers-v2')||'{}')}catch(e){A={}}
+if(!A||typeof A!=='object'||Array.isArray(A))A={};for(const i of Object.keys(A)){const q=Q[i],v=A[i];if(!q||!Array.isArray(v)){delete A[i];continue}A[i]=v.filter(j=>Number.isInteger(j)&&q.o[j]);if(!A[i].length||(!q.multi&&A[i].length>1))delete A[i]}
+const qs=document.getElementById('qs');
+qs.innerHTML=Q.map((q,i)=>`<div class="q"><h3><span>${i+1}</span>${q.q}${q.multi?'<em class="all">Select all that apply</em>':''}</h3><div class="opts">${q.o.map((o,j)=>`<button type="button" id="q${i}o${j}" data-q="${i}" data-o="${j}" aria-pressed="false">${o[0]}</button>`).join('')}</div></div>`).join('');
+const render=()=>{
+qs.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',(A[b.dataset.q]||[]).includes(+b.dataset.o)?'true':'false'));qs.querySelectorAll('.q').forEach((el,i)=>el.classList.toggle('done',!!(A[i]&&A[i].length)));{const nn=Q.filter((q,i)=>A[i]&&A[i].length).length;const bi=document.getElementById('svp-i');if(bi)bi.style.width=(nn/Q.length*100)+'%';const dd=document.getElementById('svp-d');if(dd)dd.innerHTML=Q.map((q,i)=>`<b class="${A[i]&&A[i].length?'on':''}"></b>`).join('');}
+const S={dig:0,pwm:0,bank:0,mfo:0,sfo:0};
+Object.entries(A).forEach(([i,js])=>{js.forEach(j=>{const s=Q[i].o[j][1];for(const k in s)S[k]+=s[k]/js.length})});
+for(const k in S)S[k]=Math.round(S[k]*10)/10;
+const n=Object.values(A).filter(v=>v.length).length,mx=Math.max(1,...Object.values(S));
+document.getElementById('prog').textContent=n===0?'Your ranking appears here as you answer':n<Q.length?`${n} of ${Q.length} answered`:'All six answered';document.getElementById('reset').hidden=n===0;
+{const lead=[...O].sort((a,b)=>S[b.k]-S[a.k])[0];document.getElementById('sbar-t').textContent=n===0?`0 of ${Q.length} answered`:`${n} of ${Q.length} · Leading: ${lead.n}`;}if(typeof sbu==='function')requestAnimationFrame(sbu);
+updLive(n,S);
+const r=[...O].sort((a,b)=>S[b.k]-S[a.k]);window.LASTR=r;
+const f=document.getElementById('fit');
+if(n<Q.length){f.innerHTML='';return}
+renderPanel(true);
+};
+var SEL=0,LIVEK=['',''];
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function swap(el,txt){if(el.textContent===txt)return;if(RM||!el.animate){el.textContent=txt;return}el.animate([{transform:'none',opacity:1},{transform:'translateY(-14px)',opacity:0}],{duration:170,easing:'ease-in'}).onfinish=()=>{el.textContent=txt;el.animate([{transform:'translateY(14px)',opacity:0},{transform:'none',opacity:1}],{duration:380,easing:'cubic-bezier(.2,.8,.2,1)'})}}
+const ICO={dig:'<svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10 18.5h4M9 8l2 2 4-4"/></svg>',pwm:'<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 21c.8-4 3.9-6.3 7.5-6.3s6.7 2.3 7.5 6.3"/></svg>',bank:'<svg viewBox="0 0 24 24"><path d="M3 9.5 12 4l9 5.5M5 9.5h14M6.5 10v8M10.5 10v8M13.5 10v8M17.5 10v8M4 20.5h16"/></svg>',mfo:'<svg viewBox="0 0 24 24"><path d="M1.8 20.5v-6l3.6-3 3.6 3v6zM8.4 20.5v-9l3.6-3.2 3.6 3.2v9zM15 20.5v-6l3.6-3 3.6 3v6z"/></svg>',sfo:'<svg viewBox="0 0 24 24"><path d="M3.5 11 12 4l8.5 7v9.5h-17zM9.5 20.5v-5.5h5v5.5"/></svg>'};
+function updLive(n,S){const r=[...O].sort((a,b)=>S[b.k]-S[a.k]||O.indexOf(a)-O.indexOf(b));const done=n===Q.length;const L=document.getElementById('live-l');L.textContent=done?'Models worth exploring':'Leading so far';L.hidden=n===0;
+const lv=document.getElementById('lv');if(!lv.children.length)lv.innerHTML=O.map(o=>`<button type="button" class="slot" role="tab" data-k="${o.k}"><span class="rk"></span><span class="bd"><span class="ico">${ICO[o.k]}</span><span class="tx"><span class="nm">${o.s}</span><span class="sh">${o.short}</span></span></span></button>`).join('');
+const keys=n===0?['','']:[r[0].k,r[1].k];if(keys.join()!==LIVEK.join())SEL=0;LIVEK=keys;
+const els=[...lv.children],first=new Map(els.map(e=>[e.dataset.k,e.getBoundingClientRect().top]));
+r.forEach(o=>lv.appendChild(lv.querySelector(`[data-k="${o.k}"]`)));
+r.forEach((o,i)=>{const e=lv.querySelector(`[data-k="${o.k}"]`);e.querySelector('.rk').textContent=n===0?'':i+1;const sel=done&&i===SEL,hot=done?sel:(n>0&&i===0);e.classList.toggle('on',hot);e.classList.toggle('top',n>0&&i<2);e.classList.toggle('dim',done&&i>=2);e.disabled=!(done&&i<2);e.dataset.i=i;e.setAttribute('aria-selected',sel?'true':'false');
+const dy=first.get(o.k)-e.getBoundingClientRect().top;if(dy&&!RM&&e.animate)e.animate([{transform:`translateY(${dy}px)`},{transform:'none'}],{duration:620,easing:'cubic-bezier(.2,.8,.2,1)'})});
+document.getElementById('live').classList.toggle('done',done)}
+function renderPanel(full){const r=window.LASTR;if(!r)return;const o=r[SEL];const f=document.getElementById('fit');const mo=Q[0].o[A[0][0]][2];
+const html=`<div class="pnl" key="${o.k}"><div class="pr"><span>Fits when</span><p>${o.ws}</p></div><div class="pr"><span>Tradeoff</span><p>${o.ps}</p></div><div class="pr"><span>Ask them</span><p class="ask">“${o.ask}”</p></div></div>`;
+if(full||!f.querySelector('.pnl-w')){f.innerHTML=`<p class="mo">${mo}</p><div class="pnl-w">${html}</div><p class="note">The weights behind this result are my editorial judgment from the research, not a validated model. Use it to start conversations rather than to choose, check whether a model is realistic for you against the typical client sizes above, and ask any firm for a written list of every way it earns from your relationship.</p>${shareUI(r)}`}else{f.querySelector('.pnl-w').innerHTML=html}
+const p=f.querySelector('.pnl');if(p&&!RM&&p.animate)p.animate([{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'none'}],{duration:420,easing:'cubic-bezier(.2,.8,.2,1)'})}
+document.addEventListener('click',e=>{const b=e.target.closest('.slot');if(!b||b.disabled)return;SEL=+b.dataset.i;document.querySelectorAll('#lv .slot').forEach(x=>{const on=+x.dataset.i===SEL&&!x.disabled;x.classList.toggle('on',on);x.setAttribute('aria-selected',on?'true':'false')});renderPanel(false)});
+function sharePayload(r){return{answers:JSON.stringify(Q.map((q,i)=>(A[i]||[]).map(j=>q.o[j][0]))),top:r[0].k+','+r[1].k,day:new Date().toISOString().slice(0,10)}}
+function shareKey(){return JSON.stringify(A)}
+var SH=null;try{SH=localStorage.getItem('fit-shared')}catch(e){}
+var CANSHARE=/netlify\.app$/.test(location.hostname);
+(async()=>{if(CANSHARE)return;const db=await getDb();if(db){CANSHARE=true;if(Object.values(A).filter(v=>v.length).length===Q.length)renderPanel(true)}})();
+function shareUI(r){const send='<button type="button" id="send-btn" class="ghost">Send the survey to someone</button>';if(!CANSHARE)return `<div class="share lite"><b class="sh-h">Know someone in this moment?</b><div class="sh-row">${send}</div></div>`;if(SH===shareKey())return `<div class="share done"><span class="sh-ck" aria-hidden="true">\u2713</span><div><b>Thank you.</b><p>Your answers will help shape what comes next in this research.</p></div></div>`;return `<div class="share"><b class="sh-h">Help shape this research</b><p>If you are open to it, share your answers anonymously. It takes one tap and helps me understand what families like yours need.</p><div class="sh-row"><button type="button" id="share-btn">Share my answers</button><button type="button" id="send-btn" class="ghost">Send the survey to someone</button></div><p class="note">Only your six answers and two results are shared. Never your name or contact details.</p><p class="note" id="share-msg" role="status"></p></div>`}
+async function sendSurvey(b){const url=location.href.split('#')[0]+'#survey';const data={title:'Which model fits your family?',text:'A six-question survey on choosing between a wealth advisor, private bank, family office, and more.',url};try{if(navigator.share){await navigator.share(data);return}await navigator.clipboard.writeText(url);b.textContent='Link copied';setTimeout(()=>{b.textContent='Send the survey to someone'},2200)}catch(e){}}
+document.addEventListener('click',e=>{const b=e.target.closest('#send-btn');if(b)sendSurvey(b)});
+async function getDb(){try{if(!window.claude||typeof window.claude.use!=='function')return null;return await Promise.race([window.claude.use('db'),new Promise(res=>setTimeout(()=>res(null),8000))])}catch(e){return null}}
+async function sendShare(btn){const msg=document.getElementById('share-msg');const r=window.LASTR;if(!r)return;const p=sharePayload(r);btn.disabled=true;btn.textContent='Sending…';let ok=false;
+const db=await getDb();
+if(db){try{const id=Date.now().toString(36)+Math.random().toString(36).slice(2,8);await db.collection('responses').doc(id).set({answers:p.answers,top:p.top,day:p.day,v:1});ok=true}catch(e){ok=false}}
+else if(/netlify\.app$/.test(location.hostname)||document.querySelector('form[name=fit-share]')&&location.protocol==='https:'&&!/claude/.test(location.hostname)){try{const body=new URLSearchParams({'form-name':'fit-share',answers:p.answers,top:p.top,day:p.day}).toString();const res=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body});ok=res.ok}catch(e){ok=false}}
+if(ok){SH=shareKey();try{localStorage.setItem('fit-shared',SH)}catch(e){}btn.closest('.share').outerHTML='<div class="share done"><span class="sh-ck" aria-hidden="true">\u2713</span><div><b>Thank you.</b><p>Your answers will help shape what comes next in this research.</p></div></div>'}
+else{btn.disabled=false;btn.textContent='Share my answers';msg.textContent='Sharing is not available on this copy of the page. Your result is unchanged.'}}
+document.addEventListener('click',e=>{const b=e.target.closest('#share-btn');if(b)sendShare(b)});
+qs.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const i=+b.dataset.q,j=+b.dataset.o,cur=A[i]||[];if(Q[i].multi){A[i]=cur.includes(j)?cur.filter(x=>x!==j):[...cur,j]}else{A[i]=[j]}if(!A[i].length)delete A[i];try{localStorage.setItem('fit-answers-v2',JSON.stringify(A))}catch(e){}render()});
+document.getElementById('reset').addEventListener('click',()=>{A={};try{localStorage.removeItem('fit-answers-v2')}catch(e){}render()});
+
+{const C=['Pay down debt','Move assets elsewhere','Use an outside product','Hold idle cash','Borrow against assets','Take more risk','Ask for more help'];
+const R=[['Asset fees','dduunu'],['Product commissions','dddd nn'.replace(' ','')],['Lending and in-house funds','ddduun'],['Carry or performance','nnndnu'],['Flat fee','nnnnnn']];
+R[0][1]='dddnunn';R[1][1]='ddddnnn';R[2][1]='ddduunn';R[3][1]='nnnnnun';R[4][1]='nnnnnnw';
+const k={u:'<i class="up" title="Revenue rises">+</i>',d:'<i class="dn" title="Revenue falls">&minus;</i>',n:'<i class="nu" title="No real difference"></i>',w:'<i class="wk" title="Same revenue, more work">=</i>'};
+document.getElementById('ig').innerHTML=`<thead><tr><th rowspan="2">Advisor is paid on</th><th colspan="7" class="grp">When the family decides to</th></tr><tr>${C.map(c=>`<th scope="col">${c}</th>`).join('')}</tr></thead><tbody>${R.map(([r,v])=>`<tr><td>${r}</td>${[...v].map(c=>`<td>${k[c]}</td>`).join('')}</tr>`).join('')}</tbody>`;}
+render();
+const sb=document.getElementById('sbar'),sv=document.getElementById('survey'),fitEl=document.getElementById('fit');let sbt=0;function sbu(){sbt=0;{const fc=document.getElementById('fcta');if(fc){const a=sv.getBoundingClientRect(),h=innerHeight;const nearSv=a.top<h*.9&&a.bottom>h*.1;const past=scrollY>h*.6;const show=past&&!nearSv;if(show&&!fc.classList.contains('show')&&!fc.dataset.seen){fc.dataset.seen=1;fc.classList.add('pulse')}fc.classList.toggle('show',show)}}const h=innerHeight,a=sv.getBoundingClientRect(),f=fitEl.getBoundingClientRect();const inS=a.top<h*.6&&a.bottom>h*.4;const fitSeen=f.top<h-60&&f.bottom>0&&fitEl.offsetHeight>40;sb.classList.toggle('on',inS&&!fitSeen)}addEventListener('scroll',()=>{if(!sbt)sbt=requestAnimationFrame(sbu)},{passive:true});addEventListener('resize',sbu);sbu();
+const pb=document.getElementById('prog-bar');const onS=()=>{const h=document.documentElement;pb.style.width=(h.scrollTop/Math.max(1,h.scrollHeight-h.clientHeight)*100)+'%'};addEventListener('scroll',onS,{passive:true});onS();
+}
+</script>
+</body>
+</html>
